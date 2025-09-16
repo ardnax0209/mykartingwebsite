@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Video Header -->
+  <header class="video-header" id="video-header">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="https://cdn.pixabay.com/video/2021/06/24/78700-567321444_large.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h1>Welcome to My Page</h1>
+      <p>Journey. Results. Growth.</p>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+  </header>
+
+  <!-- About Me -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim quam eu mauris iaculis, sed pellentesque odio vestibulum. Nulla iaculis tellus consequat lectus pharetra, eu scelerisque orci consectetur. Ut purus nunc, ullamcorper quis euismod sed, sagittis at nibh. Phasellus mauris nisl, sagittis vitae leo non, tristique consequat enim. Praesent molestie dolor tellus, non accumsan elit consequat eu. Pellentesque iaculis tortor sit amet ipsum vulputate dapibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vitae nunc lorem.<br/>
+      <br/>
+      Nullam et risus consectetur, consequat nulla sit amet, sagittis sapien. Ut tempor feugiat varius. Praesent convallis nibh vel mauris mattis, eget vulputate odio laoreet. Pellentesque sodales tempor consequat. Aliquam erat volutpat. Etiam laoreet fermentum ante ac cursus. Pellentesque in euismod felis. Phasellus a eros tincidunt, tempor arcu eu, vestibulum sapien. Quisque a finibus ante, nec tincidunt dolor.
+    </p>
+  </section>
+
+  <!-- Recent Activities -->
+  <section id="blog">
+    <h2>Latest Activities</h2>
+    <div class="blog-grid">
+      <!-- Post 1 -->
+      <div class="blog-card">
+        <img src="resources/post1.jpg" alt="Victory at Local Tournament">
+        <div class="content">
+          <h3>Victory at Local Tournament</h3>
+          <p class="date">September 10, 2025</p>
+          <p>I placed first in the recent event, and it was an incredible experience!</p>
+          <a href="post.html?id=1" class="btn">Read More</a>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="blog-card">
+        <img src="resources/post2.jpg" alt="New Training Milestone">
+        <div class="content">
+          <h3>New Training Milestone</h3>
+          <p class="date">September 7, 2025</p>
+          <p>This week I achieved a personal best in endurance training.</p>
+          <a href="post.html?id=2" class="btn">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="see-more">
+      <a href="blog.html" class="btn">See All Posts</a>
+    </div>
+  </section>
+
+  <!-- Sponsorship -->
+<section id="sponsorship">
+  <h2>Our Sponsors</h2>
+  <p class="gratitude">
+    I am deeply grateful to my sponsors for their unwavering support. 
+    Your generosity fuels my journey and inspires me to keep pushing 
+    forward. Together, we are achieving more than I could alone.
+  </p>
+
+  <div class="sponsors-logos">
+    <!-- Sponsor 1 -->
+    <div class="sponsor">
+      <img src="resources/sponsor1.png" alt="Sponsor 1">
+      <div class="sponsor-info">
+        <h3>Faster Inc</h3>
+        <p>Partnering with me to inspire the next generation of athletes.</p>
+      </div>
+    </div>
+
+    <!-- Sponsor 2 -->
+    <div class="sponsor">
+      <img src="resources/sponsor2.png" alt="Sponsor 2">
+      <div class="sponsor-info">
+        <h3>Go Energy Drink</h3>
+        <p>Helping me reach new milestones in every competition.</p>
+      </div>
+    </div>
+
+    <!-- Sponsor 3 -->
+    <div class="sponsor">
+      <img src="resources/sponsor3.png" alt="Sponsor 3">
+      <div class="sponsor-info">
+        <h3>Quad Ride Organization</h3>
+        <p>Providing incredible support and encouragement on my journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Social Media -->
+  <section id="social" class="section">
+    <h2>Follow Me</h2>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://x.com" target="_blank">Twitter</a>
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+    </div>
+  </section>
+
+  <!-- Contact Us -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3>✅ Thank you!</h3>
+      <p>Your message has been sent successfully.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+  </footer>
+
+  <!-- Side Navigation Menu -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#results">Activities</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#sponsorship">Sponsors</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>

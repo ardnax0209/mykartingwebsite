@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 id="post-title">Loading...</h1>
+    <p id="post-date"></p>
+  </header>
+
+  <main class="post-container">
+    <img id="post-image" src="" alt="Blog Image" style="max-width:100%; border-radius:12px; margin-bottom:20px;">
+    <article id="post-content"></article>
+  </main>
+
+  <footer>
+    <a href="blog.html" class="btn">← Back to Blog</a>
+  </footer>
+
+  <script src="posts.js"></script>
+  <script>
+    // Get post ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get("id");
+
+    // Load post data
+    const post = posts.find(p => p.id === parseInt(postId));
+    if (post) {
+      document.title = post.title + " | My Blog";
+      document.getElementById("post-title").textContent = post.title;
+      document.getElementById("post-date").textContent = post.date;
+      document.getElementById("post-image").src = post.image;
+      document.getElementById("post-content").innerHTML = post.content;
+    } else {
+      document.querySelector("main").innerHTML = "<p>Post not found.</p>";
+    }
+  </script>
+</body>
+</html>
