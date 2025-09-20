@@ -4,12 +4,20 @@ body {
   font-family: "Poppins", Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  background: #fafafa;
+  background: #000;
 }
 
 h1, h2 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+h2 {
+  color: #70ffff;
+}
+
+p {
+  color: #fff;
 }
 
 .section {
@@ -26,7 +34,7 @@ h1, h2 {
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  background: #0077ff;
+  background: #0a149d;
   color: #fff;
   text-decoration: none;
   border-radius: 25px;
@@ -61,13 +69,36 @@ h1, h2 {
 
 /* Text styling */
 .overlay {
-  position: relative;
+  position: absolute;
+  top: 0;       /* start at very top */
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   text-align: center;
-  top: 40%;
+  display: flex;
+  flex-direction: column; /* so logo stays on top and content below */
+  align-items: center;
+  justify-content: center;
   color: #fff;
   padding: 0 20px;
 }
+
+/* Logo styling */
+.site-logo {
+  max-width: 300px; /* adjust logo size */
+  margin-bottom: 20px;
+}
+
+/* Center header text vertically in remaining space */
+.header-content {
+  flex: 1; /* takes the remaining height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center;
+}
+
 .overlay h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -79,6 +110,28 @@ h1, h2 {
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
+/* Sponsor icons container */
+.sponsor-icons {
+  position: absolute;
+  bottom: 20px;       /* stick near bottom of overlay */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;          /* space between logos */
+}
+
+/* Individual sponsor icons */
+.sponsor-icons img {
+  width: 60px;        /* adjust size as needed */
+  height: auto;
+  transition: transform 0.3s ease;
+  filter: brightness(0) invert(1); /* makes them white-ish if logos are dark */
+}
+
+.sponsor-icons img:hover {
+  transform: scale(1.1);
+}
+
 /* Blog Grid */
 .blog-grid {
   display: grid;
@@ -87,6 +140,8 @@ h1, h2 {
   padding: 20px;
 }
 .blog-card {
+  display: flex;
+  flex-direction: column;
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -101,9 +156,13 @@ h1, h2 {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-radius: 8px 8px 0 0;
 }
 .blog-card .content {
   padding: 15px;
+  flex: 1; /* pushes the button down */
+  display: flex;
+  flex-direction: column;
 }
 .blog-card h3 {
   margin: 0 0 10px;
@@ -116,6 +175,15 @@ h1, h2 {
 .see-more {
   text-align: center;
   margin-top: 2rem;
+}
+
+.blog-card .content p {
+  flex-grow: 1; /* fills available space */
+}
+
+.blog-card .btn {
+  align-self: flex-start; /* keeps button aligned left */
+  margin-top: auto;       /* pushes button to bottom */
 }
 
 /* Social Media */
@@ -139,18 +207,12 @@ h1, h2 {
 #sponsorship {
   text-align: center;
   padding: 4rem 2rem;
-  background: #f9f9f9;
-}
-
-#sponsorship h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #333;
+  background: #000;
 }
 
 #sponsorship .gratitude {
   font-size: 1.1rem;
-  color: #555;
+  color: #fff;
   max-width: 700px;
   margin: 0 auto 2rem auto;
   line-height: 1.6;
@@ -311,7 +373,7 @@ button {
 
 #side-menu a {
   display: block;
-  background: #333;
+  background: #4db0f1;
   color: #fff;
   text-decoration: none;
   padding: 10px 14px;
@@ -322,8 +384,18 @@ button {
 }
 
 #side-menu a:hover {
-  background: #28a745;
+  background: #0056cc;
   transform: translateX(4px);
+}
+
+.menu-logo {
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-logo img {
+  width: 110px;     /* adjust size */
+  height: auto;
 }
 
 /* Footer */
