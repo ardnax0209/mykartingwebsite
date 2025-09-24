@@ -52,3 +52,20 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", toggleSideMenu);
   toggleSideMenu(); // Run on page load
 });
+
+let lastScrollTop = 0;
+const sideMenu = document.querySelector('.side-menu');
+
+window.addEventListener('scroll', function() {
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop) {
+    // Scrolling down → hide menu
+    sideMenu.classList.add('hidden');
+  } else {
+    // Scrolling up → show menu
+    sideMenu.classList.remove('hidden');
+  }
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // avoid negative scrolling
+});

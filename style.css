@@ -187,28 +187,42 @@ p {
 }
 
 /* Social Media */
-.social-links {
+#social {
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+#social h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.social-icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
-.social-links a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #0077ff;
-  transition: color 0.3s;
+
+.social-icons img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.social-links a:hover {
-  color: #0056cc;
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.social-logo img {
+  width: 300px;
+  opacity: 0.9;
 }
 
 /* Sponsors */
 /* Sponsorship Section */
-#sponsorship {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #000;
-}
 
 #sponsorship .gratitude {
   font-size: 1.1rem;
@@ -218,63 +232,72 @@ p {
   line-height: 1.6;
 }
 
-.sponsors-logos {
+#sponsorship {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.sponsors-list {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto;
 }
 
-/* Sponsor Logo Container */
-.sponsor {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
-.sponsor img {
-  max-height: 80px;
+.sponsor-logo {
+  width: 300px;
+  height: 300px;
   object-fit: contain;
-  filter: grayscale(30%);
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: #f0f0f0;
 }
 
-.sponsor:hover img {
-  filter: grayscale(0%) brightness(1.1);
-  transform: scale(1.05);
+.sponsor-details {
+  flex: 1;
 }
 
-/* Info Popout */
-.sponsor-info {
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #333;
+.sponsor-details h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.sponsor-details p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: black;
+}
+
+.sponsor-links {
+  margin-top: 12px;
+}
+
+.sponsor-links a {
+  display: inline-block;
+  margin-right: 12px;
+  padding: 6px 12px;
+  background: #0073e6;
   color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 10;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
 }
 
-.sponsor-info h3 {
-  margin: 0 0 0.3rem 0;
-  font-size: 1rem;
-}
-
-.sponsor-info p {
-  font-size: 0.85rem;
-  margin: 0;
-}
-
-/* Show Popout on Hover */
-.sponsor:hover .sponsor-info {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
+.sponsor-links a:hover {
+  background: #005bb5;
 }
 
 /* Contact Form */
@@ -350,7 +373,8 @@ button {
 /* Floating Side Menu */
 /* Initially hidden */
 #side-menu.hidden {
-  display: none;
+  transform: translateX(-100%);
+  opacity: 0;
 }
 
 #side-menu {
@@ -359,6 +383,7 @@ button {
   left: 20px;
   transform: translateY(-50%);
   z-index: 999;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 #side-menu ul {
@@ -400,11 +425,55 @@ button {
 
 /* Footer */
 footer {
-  background: #222;
-  color: white;
+  background: #111;
+  color: #fff;
+  margin-top: 2%;
+  padding: 1%;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   text-align: center;
-  padding: 20px 10px;
-  margin-top: 40px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social img {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.footer-logo img {
+  width: 120px;
+  opacity: 0.9;
+}
+
+.footer-logo p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer-links a {
+  color: #0073e6;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #005bb5;
 }
 
 /* Animation */
@@ -415,4 +484,21 @@ footer {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sponsor-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sponsor-logo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .footer-container {
+    gap: 20px;
+  }
 }
