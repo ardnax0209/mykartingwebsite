@@ -39,33 +39,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Hide side menu when in video header
-  function toggleSideMenu() {
-    const headerBottom = header.offsetTop + header.offsetHeight;
-    if (window.scrollY < headerBottom) {
-      sideMenu.classList.add("hidden");
-    } else {
-      sideMenu.classList.remove("hidden");
-    }
-  }
+  const mobileWheel = document.querySelector(".mobile-wheel");
+  const nav = document.querySelector(".header-nav");
 
-  window.addEventListener("scroll", toggleSideMenu);
-  toggleSideMenu(); // Run on page load
+  if (mobileWheel) {
+    mobileWheel.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
+  }
 });
 
 let lastScrollTop = 0;
 const sideMenu = document.querySelector('.side-menu');
 
-window.addEventListener('scroll', function() {
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
+  // Only on index.html
+  window.addEventListener("scroll", function () {
+    const videoHeader = document.querySelector(".video-header");
+    const kartMenu = document.getElementById("kart-menu");
 
-  if (scrollTop > lastScrollTop) {
-    // Scrolling down → hide menu
-    sideMenu.classList.add('hidden');
-  } else {
-    // Scrolling up → show menu
-    sideMenu.classList.remove('hidden');
+    if (videoHeader) { // safety check
+      if (window.scrollY > videoHeader.offsetHeight - 50) {
+        kartMenu.style.top = "0"; // show menu
+      } else {
+        kartMenu.style.top = "-100px"; // hide menu
+      }
+    }
+  });
+} else {
+  // On all other pages → always show menu
+  const kartMenu = document.getElementById("kart-menu");
+  if (kartMenu) {
+    kartMenu.style.top = "0";
+    kartMenu.style.position = "fixed"; // make sure it stays visible
   }
+}
 
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // avoid negative scrolling
-});
+// Mobile menu toggle
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.style.display =
+      mobileMenu.style.display === "flex" ? "none" : "flex";
+  });
+}
