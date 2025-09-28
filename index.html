@@ -85,13 +85,32 @@
   </header>
 
   <!-- About Me -->
-  <section id="about" class="section">
+  <section id="about" class="about-section">
     <h2>About Me</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim quam eu mauris iaculis, sed pellentesque odio vestibulum. Nulla iaculis tellus consequat lectus pharetra, eu scelerisque orci consectetur. Ut purus nunc, ullamcorper quis euismod sed, sagittis at nibh. Phasellus mauris nisl, sagittis vitae leo non, tristique consequat enim. Praesent molestie dolor tellus, non accumsan elit consequat eu. Pellentesque iaculis tortor sit amet ipsum vulputate dapibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vitae nunc lorem.<br/>
-      <br/>
-      Nullam et risus consectetur, consequat nulla sit amet, sagittis sapien. Ut tempor feugiat varius. Praesent convallis nibh vel mauris mattis, eget vulputate odio laoreet. Pellentesque sodales tempor consequat. Aliquam erat volutpat. Etiam laoreet fermentum ante ac cursus. Pellentesque in euismod felis. Phasellus a eros tincidunt, tempor arcu eu, vestibulum sapien. Quisque a finibus ante, nec tincidunt dolor.
-    </p>
+
+    <div class="carousel">
+      <button class="carousel-btn prev">&#10094;</button>
+      <div class="carousel-track-container">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="resources/about1.jpg" alt="Racing on the track">
+            <p>Pushing limits on the track has always been my passion...</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="resources/about2.jpg" alt="Team garage">
+            <p>Behind every race is a team working tirelessly in the garage...</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="resources/about3.jpg" alt="Celebration">
+            <p>Every podium finish is not just my victory, but our collective story...</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next">&#10095;</button>
+    </div>
+
+    <!-- Indicator dots -->
+    <div class="carousel-dots"></div>
   </section>
 
   <!-- Recent Activities -->

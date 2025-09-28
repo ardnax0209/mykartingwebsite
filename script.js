@@ -53,12 +53,11 @@ let lastScrollTop = 0;
 const sideMenu = document.querySelector('.side-menu');
 
 if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-  // Only on index.html
   window.addEventListener("scroll", function () {
     const videoHeader = document.querySelector(".video-header");
     const kartMenu = document.getElementById("kart-menu");
 
-    if (videoHeader) { // safety check
+    if (videoHeader && kartMenu) {
       if (window.scrollY > videoHeader.offsetHeight - 50) {
         kartMenu.style.top = "0"; // show menu
       } else {
@@ -71,7 +70,7 @@ if (window.location.pathname.endsWith("index.html") || window.location.pathname 
   const kartMenu = document.getElementById("kart-menu");
   if (kartMenu) {
     kartMenu.style.top = "0";
-    kartMenu.style.position = "fixed"; // make sure it stays visible
+    kartMenu.style.position = "fixed";
   }
 }
 
@@ -85,3 +84,71 @@ if (menuToggle) {
       mobileMenu.style.display === "flex" ? "none" : "flex";
   });
 }
+
+const track = document.querySelector(".carousel-track");
+const slides = Array.from(track.children);
+const nextBtn = document.querySelector(".carousel-btn.next");
+const prevBtn = document.querySelector(".carousel-btn.prev");
+const dotsContainer = document.querySelector(".carousel-dots");
+
+let currentIndex = 0;
+let autoPlayInterval;
+
+// Create dots dynamically
+slides.forEach((_, i) => {
+  const dot = document.createElement("button");
+  if (i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
+
+  dot.addEventListener("click", () => {
+    currentIndex = i;
+    updateCarousel();
+    resetAutoPlay();
+  });
+});
+
+const dots = Array.from(dotsContainer.children);
+
+function updateCarousel() {
+  const width = slides[0].getBoundingClientRect().width;
+  track.style.transform = `translateX(-${currentIndex * width}px)`;
+
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[currentIndex].classList.add("active");
+}
+
+function goToNext() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+}
+
+function goToPrev() {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+}
+
+function startAutoPlay() {
+  autoPlayInterval = setInterval(goToNext, 5000);
+}
+
+function resetAutoPlay() {
+  clearInterval(autoPlayInterval);
+  startAutoPlay();
+}
+
+// Event listeners
+nextBtn.addEventListener("click", () => {
+  goToNext();
+  resetAutoPlay();
+});
+
+prevBtn.addEventListener("click", () => {
+  goToPrev();
+  resetAutoPlay();
+});
+
+window.addEventListener("resize", updateCarousel);
+
+// Initialize
+updateCarousel();
+startAutoPlay();
